@@ -25,16 +25,19 @@ export type AggregateTree = {
 
 export type TreeMinAggregateOutputType = {
   id: string | null
+  name: string | null
   authorId: string | null
 }
 
 export type TreeMaxAggregateOutputType = {
   id: string | null
+  name: string | null
   authorId: string | null
 }
 
 export type TreeCountAggregateOutputType = {
   id: number
+  name: number
   authorId: number
   _all: number
 }
@@ -42,16 +45,19 @@ export type TreeCountAggregateOutputType = {
 
 export type TreeMinAggregateInputType = {
   id?: true
+  name?: true
   authorId?: true
 }
 
 export type TreeMaxAggregateInputType = {
   id?: true
+  name?: true
   authorId?: true
 }
 
 export type TreeCountAggregateInputType = {
   id?: true
+  name?: true
   authorId?: true
   _all?: true
 }
@@ -130,6 +136,7 @@ export type TreeGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export type TreeGroupByOutputType = {
   id: string
+  name: string
   authorId: string | null
   _count: TreeCountAggregateOutputType | null
   _min: TreeMinAggregateOutputType | null
@@ -156,6 +163,7 @@ export type TreeWhereInput = {
   OR?: Prisma.TreeWhereInput[]
   NOT?: Prisma.TreeWhereInput | Prisma.TreeWhereInput[]
   id?: Prisma.StringFilter<"Tree"> | string
+  name?: Prisma.StringFilter<"Tree"> | string
   authorId?: Prisma.StringNullableFilter<"Tree"> | string | null
   persons?: Prisma.PersonListRelationFilter
   author?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -163,6 +171,7 @@ export type TreeWhereInput = {
 
 export type TreeOrderByWithRelationInput = {
   id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   authorId?: Prisma.SortOrderInput | Prisma.SortOrder
   persons?: Prisma.PersonOrderByRelationAggregateInput
   author?: Prisma.UserOrderByWithRelationInput
@@ -173,6 +182,7 @@ export type TreeWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.TreeWhereInput | Prisma.TreeWhereInput[]
   OR?: Prisma.TreeWhereInput[]
   NOT?: Prisma.TreeWhereInput | Prisma.TreeWhereInput[]
+  name?: Prisma.StringFilter<"Tree"> | string
   authorId?: Prisma.StringNullableFilter<"Tree"> | string | null
   persons?: Prisma.PersonListRelationFilter
   author?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
@@ -180,6 +190,7 @@ export type TreeWhereUniqueInput = Prisma.AtLeast<{
 
 export type TreeOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   authorId?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.TreeCountOrderByAggregateInput
   _max?: Prisma.TreeMaxOrderByAggregateInput
@@ -191,44 +202,52 @@ export type TreeScalarWhereWithAggregatesInput = {
   OR?: Prisma.TreeScalarWhereWithAggregatesInput[]
   NOT?: Prisma.TreeScalarWhereWithAggregatesInput | Prisma.TreeScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Tree"> | string
+  name?: Prisma.StringWithAggregatesFilter<"Tree"> | string
   authorId?: Prisma.StringNullableWithAggregatesFilter<"Tree"> | string | null
 }
 
 export type TreeCreateInput = {
   id?: string
+  name?: string
   persons?: Prisma.PersonCreateNestedManyWithoutTreeInput
   author?: Prisma.UserCreateNestedOneWithoutTreesInput
 }
 
 export type TreeUncheckedCreateInput = {
   id?: string
+  name?: string
   authorId?: string | null
   persons?: Prisma.PersonUncheckedCreateNestedManyWithoutTreeInput
 }
 
 export type TreeUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   persons?: Prisma.PersonUpdateManyWithoutTreeNestedInput
   author?: Prisma.UserUpdateOneWithoutTreesNestedInput
 }
 
 export type TreeUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   authorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   persons?: Prisma.PersonUncheckedUpdateManyWithoutTreeNestedInput
 }
 
 export type TreeCreateManyInput = {
   id?: string
+  name?: string
   authorId?: string | null
 }
 
 export type TreeUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TreeUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   authorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -249,16 +268,19 @@ export type TreeOrderByRelationAggregateInput = {
 
 export type TreeCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   authorId?: Prisma.SortOrder
 }
 
 export type TreeMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   authorId?: Prisma.SortOrder
 }
 
 export type TreeMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  name?: Prisma.SortOrder
   authorId?: Prisma.SortOrder
 }
 
@@ -320,11 +342,13 @@ export type TreeUncheckedUpdateManyWithoutAuthorNestedInput = {
 
 export type TreeCreateWithoutPersonsInput = {
   id?: string
+  name?: string
   author?: Prisma.UserCreateNestedOneWithoutTreesInput
 }
 
 export type TreeUncheckedCreateWithoutPersonsInput = {
   id?: string
+  name?: string
   authorId?: string | null
 }
 
@@ -346,21 +370,25 @@ export type TreeUpdateToOneWithWhereWithoutPersonsInput = {
 
 export type TreeUpdateWithoutPersonsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   author?: Prisma.UserUpdateOneWithoutTreesNestedInput
 }
 
 export type TreeUncheckedUpdateWithoutPersonsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   authorId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type TreeCreateWithoutAuthorInput = {
   id?: string
+  name?: string
   persons?: Prisma.PersonCreateNestedManyWithoutTreeInput
 }
 
 export type TreeUncheckedCreateWithoutAuthorInput = {
   id?: string
+  name?: string
   persons?: Prisma.PersonUncheckedCreateNestedManyWithoutTreeInput
 }
 
@@ -395,25 +423,30 @@ export type TreeScalarWhereInput = {
   OR?: Prisma.TreeScalarWhereInput[]
   NOT?: Prisma.TreeScalarWhereInput | Prisma.TreeScalarWhereInput[]
   id?: Prisma.StringFilter<"Tree"> | string
+  name?: Prisma.StringFilter<"Tree"> | string
   authorId?: Prisma.StringNullableFilter<"Tree"> | string | null
 }
 
 export type TreeCreateManyAuthorInput = {
   id?: string
+  name?: string
 }
 
 export type TreeUpdateWithoutAuthorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   persons?: Prisma.PersonUpdateManyWithoutTreeNestedInput
 }
 
 export type TreeUncheckedUpdateWithoutAuthorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
   persons?: Prisma.PersonUncheckedUpdateManyWithoutTreeNestedInput
 }
 
 export type TreeUncheckedUpdateManyWithoutAuthorInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -449,6 +482,7 @@ export type TreeCountOutputTypeCountPersonsArgs<ExtArgs extends runtime.Types.Ex
 
 export type TreeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  name?: boolean
   authorId?: boolean
   persons?: boolean | Prisma.Tree$personsArgs<ExtArgs>
   author?: boolean | Prisma.Tree$authorArgs<ExtArgs>
@@ -457,22 +491,25 @@ export type TreeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
 
 export type TreeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  name?: boolean
   authorId?: boolean
   author?: boolean | Prisma.Tree$authorArgs<ExtArgs>
 }, ExtArgs["result"]["tree"]>
 
 export type TreeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
+  name?: boolean
   authorId?: boolean
   author?: boolean | Prisma.Tree$authorArgs<ExtArgs>
 }, ExtArgs["result"]["tree"]>
 
 export type TreeSelectScalar = {
   id?: boolean
+  name?: boolean
   authorId?: boolean
 }
 
-export type TreeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "authorId", ExtArgs["result"]["tree"]>
+export type TreeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "authorId", ExtArgs["result"]["tree"]>
 export type TreeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   persons?: boolean | Prisma.Tree$personsArgs<ExtArgs>
   author?: boolean | Prisma.Tree$authorArgs<ExtArgs>
@@ -493,6 +530,7 @@ export type $TreePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
+    name: string
     authorId: string | null
   }, ExtArgs["result"]["tree"]>
   composites: {}
@@ -920,6 +958,7 @@ export interface Prisma__TreeClient<T, Null = never, ExtArgs extends runtime.Typ
  */
 export interface TreeFieldRefs {
   readonly id: Prisma.FieldRef<"Tree", 'String'>
+  readonly name: Prisma.FieldRef<"Tree", 'String'>
   readonly authorId: Prisma.FieldRef<"Tree", 'String'>
 }
     

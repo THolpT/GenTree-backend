@@ -41,6 +41,7 @@ model Person {
 
 model User {
   id       String  @id @default(cuid())
+  email    String @unique
   login    String
   password String
   trees    Tree[]
@@ -48,6 +49,7 @@ model User {
 
 model Tree {
   id        String   @id @default(cuid())
+  name      String    @default("Новое древо")
   persons   Person[]
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  String?

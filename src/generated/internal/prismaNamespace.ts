@@ -693,6 +693,7 @@ export type PersonScalarFieldEnum = (typeof PersonScalarFieldEnum)[keyof typeof 
 
 export const UserScalarFieldEnum = {
   id: 'id',
+  email: 'email',
   login: 'login',
   password: 'password'
 } as const
@@ -702,6 +703,7 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const TreeScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   authorId: 'authorId'
 } as const
 

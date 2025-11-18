@@ -40,9 +40,6 @@ CREATE TABLE "Tree" (
 -- CreateIndex
 CREATE UNIQUE INDEX "Person_spouseId_key" ON "Person"("spouseId");
 
--- CreateIndex
-CREATE UNIQUE INDEX "Person_childId_key" ON "Person"("childId");
-
 -- AddForeignKey
 ALTER TABLE "Person" ADD CONSTRAINT "Person_spouseId_fkey" FOREIGN KEY ("spouseId") REFERENCES "Person"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
