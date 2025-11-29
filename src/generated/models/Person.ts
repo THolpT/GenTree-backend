@@ -31,6 +31,8 @@ export type PersonMinAggregateOutputType = {
   gender: $Enums.Gender | null
   birthDate: Date | null
   birthPlace: string | null
+  marriageDate: Date | null
+  marriagePlace: string | null
   deathDate: Date | null
   deathPlace: string | null
   img: string | null
@@ -47,6 +49,8 @@ export type PersonMaxAggregateOutputType = {
   gender: $Enums.Gender | null
   birthDate: Date | null
   birthPlace: string | null
+  marriageDate: Date | null
+  marriagePlace: string | null
   deathDate: Date | null
   deathPlace: string | null
   img: string | null
@@ -63,6 +67,8 @@ export type PersonCountAggregateOutputType = {
   gender: number
   birthDate: number
   birthPlace: number
+  marriageDate: number
+  marriagePlace: number
   deathDate: number
   deathPlace: number
   img: number
@@ -81,6 +87,8 @@ export type PersonMinAggregateInputType = {
   gender?: true
   birthDate?: true
   birthPlace?: true
+  marriageDate?: true
+  marriagePlace?: true
   deathDate?: true
   deathPlace?: true
   img?: true
@@ -97,6 +105,8 @@ export type PersonMaxAggregateInputType = {
   gender?: true
   birthDate?: true
   birthPlace?: true
+  marriageDate?: true
+  marriagePlace?: true
   deathDate?: true
   deathPlace?: true
   img?: true
@@ -113,6 +123,8 @@ export type PersonCountAggregateInputType = {
   gender?: true
   birthDate?: true
   birthPlace?: true
+  marriageDate?: true
+  marriagePlace?: true
   deathDate?: true
   deathPlace?: true
   img?: true
@@ -202,6 +214,8 @@ export type PersonGroupByOutputType = {
   gender: $Enums.Gender | null
   birthDate: Date | null
   birthPlace: string | null
+  marriageDate: Date | null
+  marriagePlace: string | null
   deathDate: Date | null
   deathPlace: string | null
   img: string | null
@@ -239,16 +253,18 @@ export type PersonWhereInput = {
   gender?: Prisma.EnumGenderNullableFilter<"Person"> | $Enums.Gender | null
   birthDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
   birthPlace?: Prisma.StringNullableFilter<"Person"> | string | null
+  marriageDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
+  marriagePlace?: Prisma.StringNullableFilter<"Person"> | string | null
   deathDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
   deathPlace?: Prisma.StringNullableFilter<"Person"> | string | null
   img?: Prisma.StringNullableFilter<"Person"> | string | null
   spouseId?: Prisma.StringNullableFilter<"Person"> | string | null
   childId?: Prisma.StringNullableFilter<"Person"> | string | null
   treeId?: Prisma.StringFilter<"Person"> | string
-  spouse?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
-  spouseOf?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
   child?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
   parent?: Prisma.PersonListRelationFilter
+  spouse?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
+  spouseOf?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
   tree?: Prisma.XOR<Prisma.TreeScalarRelationFilter, Prisma.TreeWhereInput>
 }
 
@@ -260,16 +276,18 @@ export type PersonOrderByWithRelationInput = {
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
   birthDate?: Prisma.SortOrderInput | Prisma.SortOrder
   birthPlace?: Prisma.SortOrderInput | Prisma.SortOrder
+  marriageDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  marriagePlace?: Prisma.SortOrderInput | Prisma.SortOrder
   deathDate?: Prisma.SortOrderInput | Prisma.SortOrder
   deathPlace?: Prisma.SortOrderInput | Prisma.SortOrder
   img?: Prisma.SortOrderInput | Prisma.SortOrder
   spouseId?: Prisma.SortOrderInput | Prisma.SortOrder
   childId?: Prisma.SortOrderInput | Prisma.SortOrder
   treeId?: Prisma.SortOrder
-  spouse?: Prisma.PersonOrderByWithRelationInput
-  spouseOf?: Prisma.PersonOrderByWithRelationInput
   child?: Prisma.PersonOrderByWithRelationInput
   parent?: Prisma.PersonOrderByRelationAggregateInput
+  spouse?: Prisma.PersonOrderByWithRelationInput
+  spouseOf?: Prisma.PersonOrderByWithRelationInput
   tree?: Prisma.TreeOrderByWithRelationInput
 }
 
@@ -285,15 +303,17 @@ export type PersonWhereUniqueInput = Prisma.AtLeast<{
   gender?: Prisma.EnumGenderNullableFilter<"Person"> | $Enums.Gender | null
   birthDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
   birthPlace?: Prisma.StringNullableFilter<"Person"> | string | null
+  marriageDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
+  marriagePlace?: Prisma.StringNullableFilter<"Person"> | string | null
   deathDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
   deathPlace?: Prisma.StringNullableFilter<"Person"> | string | null
   img?: Prisma.StringNullableFilter<"Person"> | string | null
   childId?: Prisma.StringNullableFilter<"Person"> | string | null
   treeId?: Prisma.StringFilter<"Person"> | string
-  spouse?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
-  spouseOf?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
   child?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
   parent?: Prisma.PersonListRelationFilter
+  spouse?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
+  spouseOf?: Prisma.XOR<Prisma.PersonNullableScalarRelationFilter, Prisma.PersonWhereInput> | null
   tree?: Prisma.XOR<Prisma.TreeScalarRelationFilter, Prisma.TreeWhereInput>
 }, "id" | "spouseId">
 
@@ -305,6 +325,8 @@ export type PersonOrderByWithAggregationInput = {
   gender?: Prisma.SortOrderInput | Prisma.SortOrder
   birthDate?: Prisma.SortOrderInput | Prisma.SortOrder
   birthPlace?: Prisma.SortOrderInput | Prisma.SortOrder
+  marriageDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  marriagePlace?: Prisma.SortOrderInput | Prisma.SortOrder
   deathDate?: Prisma.SortOrderInput | Prisma.SortOrder
   deathPlace?: Prisma.SortOrderInput | Prisma.SortOrder
   img?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -327,6 +349,8 @@ export type PersonScalarWhereWithAggregatesInput = {
   gender?: Prisma.EnumGenderNullableWithAggregatesFilter<"Person"> | $Enums.Gender | null
   birthDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Person"> | Date | string | null
   birthPlace?: Prisma.StringNullableWithAggregatesFilter<"Person"> | string | null
+  marriageDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Person"> | Date | string | null
+  marriagePlace?: Prisma.StringNullableWithAggregatesFilter<"Person"> | string | null
   deathDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Person"> | Date | string | null
   deathPlace?: Prisma.StringNullableWithAggregatesFilter<"Person"> | string | null
   img?: Prisma.StringNullableWithAggregatesFilter<"Person"> | string | null
@@ -343,13 +367,15 @@ export type PersonCreateInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
-  spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
-  spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
   child?: Prisma.PersonCreateNestedOneWithoutParentInput
   parent?: Prisma.PersonCreateNestedManyWithoutChildInput
+  spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
+  spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
   tree: Prisma.TreeCreateNestedOneWithoutPersonsInput
 }
 
@@ -361,14 +387,16 @@ export type PersonUncheckedCreateInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
   spouseId?: string | null
   childId?: string | null
   treeId: string
-  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
   parent?: Prisma.PersonUncheckedCreateNestedManyWithoutChildInput
+  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
 }
 
 export type PersonUpdateInput = {
@@ -379,13 +407,15 @@ export type PersonUpdateInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
-  spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
   child?: Prisma.PersonUpdateOneWithoutParentNestedInput
   parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
+  spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
+  spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
   tree?: Prisma.TreeUpdateOneRequiredWithoutPersonsNestedInput
 }
 
@@ -397,14 +427,16 @@ export type PersonUncheckedUpdateInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   spouseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   childId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   treeId?: Prisma.StringFieldUpdateOperationsInput | string
-  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
   parent?: Prisma.PersonUncheckedUpdateManyWithoutChildNestedInput
+  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
 }
 
 export type PersonCreateManyInput = {
@@ -415,6 +447,8 @@ export type PersonCreateManyInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
@@ -431,6 +465,8 @@ export type PersonUpdateManyMutationInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -444,6 +480,8 @@ export type PersonUncheckedUpdateManyInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -475,6 +513,8 @@ export type PersonCountOrderByAggregateInput = {
   gender?: Prisma.SortOrder
   birthDate?: Prisma.SortOrder
   birthPlace?: Prisma.SortOrder
+  marriageDate?: Prisma.SortOrder
+  marriagePlace?: Prisma.SortOrder
   deathDate?: Prisma.SortOrder
   deathPlace?: Prisma.SortOrder
   img?: Prisma.SortOrder
@@ -491,6 +531,8 @@ export type PersonMaxOrderByAggregateInput = {
   gender?: Prisma.SortOrder
   birthDate?: Prisma.SortOrder
   birthPlace?: Prisma.SortOrder
+  marriageDate?: Prisma.SortOrder
+  marriagePlace?: Prisma.SortOrder
   deathDate?: Prisma.SortOrder
   deathPlace?: Prisma.SortOrder
   img?: Prisma.SortOrder
@@ -507,24 +549,14 @@ export type PersonMinOrderByAggregateInput = {
   gender?: Prisma.SortOrder
   birthDate?: Prisma.SortOrder
   birthPlace?: Prisma.SortOrder
+  marriageDate?: Prisma.SortOrder
+  marriagePlace?: Prisma.SortOrder
   deathDate?: Prisma.SortOrder
   deathPlace?: Prisma.SortOrder
   img?: Prisma.SortOrder
   spouseId?: Prisma.SortOrder
   childId?: Prisma.SortOrder
   treeId?: Prisma.SortOrder
-}
-
-export type PersonCreateNestedOneWithoutSpouseOfInput = {
-  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseOfInput, Prisma.PersonUncheckedCreateWithoutSpouseOfInput>
-  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseOfInput
-  connect?: Prisma.PersonWhereUniqueInput
-}
-
-export type PersonCreateNestedOneWithoutSpouseInput = {
-  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
-  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseInput
-  connect?: Prisma.PersonWhereUniqueInput
 }
 
 export type PersonCreateNestedOneWithoutParentInput = {
@@ -540,7 +572,13 @@ export type PersonCreateNestedManyWithoutChildInput = {
   connect?: Prisma.PersonWhereUniqueInput | Prisma.PersonWhereUniqueInput[]
 }
 
-export type PersonUncheckedCreateNestedOneWithoutSpouseInput = {
+export type PersonCreateNestedOneWithoutSpouseOfInput = {
+  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseOfInput, Prisma.PersonUncheckedCreateWithoutSpouseOfInput>
+  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseOfInput
+  connect?: Prisma.PersonWhereUniqueInput
+}
+
+export type PersonCreateNestedOneWithoutSpouseInput = {
   create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
   connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseInput
   connect?: Prisma.PersonWhereUniqueInput
@@ -551,6 +589,12 @@ export type PersonUncheckedCreateNestedManyWithoutChildInput = {
   connectOrCreate?: Prisma.PersonCreateOrConnectWithoutChildInput | Prisma.PersonCreateOrConnectWithoutChildInput[]
   createMany?: Prisma.PersonCreateManyChildInputEnvelope
   connect?: Prisma.PersonWhereUniqueInput | Prisma.PersonWhereUniqueInput[]
+}
+
+export type PersonUncheckedCreateNestedOneWithoutSpouseInput = {
+  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
+  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseInput
+  connect?: Prisma.PersonWhereUniqueInput
 }
 
 export type StringFieldUpdateOperationsInput = {
@@ -567,26 +611,6 @@ export type NullableEnumGenderFieldUpdateOperationsInput = {
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
-}
-
-export type PersonUpdateOneWithoutSpouseOfNestedInput = {
-  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseOfInput, Prisma.PersonUncheckedCreateWithoutSpouseOfInput>
-  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseOfInput
-  upsert?: Prisma.PersonUpsertWithoutSpouseOfInput
-  disconnect?: Prisma.PersonWhereInput | boolean
-  delete?: Prisma.PersonWhereInput | boolean
-  connect?: Prisma.PersonWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PersonUpdateToOneWithWhereWithoutSpouseOfInput, Prisma.PersonUpdateWithoutSpouseOfInput>, Prisma.PersonUncheckedUpdateWithoutSpouseOfInput>
-}
-
-export type PersonUpdateOneWithoutSpouseNestedInput = {
-  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
-  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseInput
-  upsert?: Prisma.PersonUpsertWithoutSpouseInput
-  disconnect?: Prisma.PersonWhereInput | boolean
-  delete?: Prisma.PersonWhereInput | boolean
-  connect?: Prisma.PersonWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PersonUpdateToOneWithWhereWithoutSpouseInput, Prisma.PersonUpdateWithoutSpouseInput>, Prisma.PersonUncheckedUpdateWithoutSpouseInput>
 }
 
 export type PersonUpdateOneWithoutParentNestedInput = {
@@ -613,7 +637,17 @@ export type PersonUpdateManyWithoutChildNestedInput = {
   deleteMany?: Prisma.PersonScalarWhereInput | Prisma.PersonScalarWhereInput[]
 }
 
-export type PersonUncheckedUpdateOneWithoutSpouseNestedInput = {
+export type PersonUpdateOneWithoutSpouseOfNestedInput = {
+  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseOfInput, Prisma.PersonUncheckedCreateWithoutSpouseOfInput>
+  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseOfInput
+  upsert?: Prisma.PersonUpsertWithoutSpouseOfInput
+  disconnect?: Prisma.PersonWhereInput | boolean
+  delete?: Prisma.PersonWhereInput | boolean
+  connect?: Prisma.PersonWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PersonUpdateToOneWithWhereWithoutSpouseOfInput, Prisma.PersonUpdateWithoutSpouseOfInput>, Prisma.PersonUncheckedUpdateWithoutSpouseOfInput>
+}
+
+export type PersonUpdateOneWithoutSpouseNestedInput = {
   create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
   connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseInput
   upsert?: Prisma.PersonUpsertWithoutSpouseInput
@@ -635,6 +669,16 @@ export type PersonUncheckedUpdateManyWithoutChildNestedInput = {
   update?: Prisma.PersonUpdateWithWhereUniqueWithoutChildInput | Prisma.PersonUpdateWithWhereUniqueWithoutChildInput[]
   updateMany?: Prisma.PersonUpdateManyWithWhereWithoutChildInput | Prisma.PersonUpdateManyWithWhereWithoutChildInput[]
   deleteMany?: Prisma.PersonScalarWhereInput | Prisma.PersonScalarWhereInput[]
+}
+
+export type PersonUncheckedUpdateOneWithoutSpouseNestedInput = {
+  create?: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
+  connectOrCreate?: Prisma.PersonCreateOrConnectWithoutSpouseInput
+  upsert?: Prisma.PersonUpsertWithoutSpouseInput
+  disconnect?: Prisma.PersonWhereInput | boolean
+  delete?: Prisma.PersonWhereInput | boolean
+  connect?: Prisma.PersonWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PersonUpdateToOneWithWhereWithoutSpouseInput, Prisma.PersonUpdateWithoutSpouseInput>, Prisma.PersonUncheckedUpdateWithoutSpouseInput>
 }
 
 export type PersonCreateNestedManyWithoutTreeInput = {
@@ -679,84 +723,6 @@ export type PersonUncheckedUpdateManyWithoutTreeNestedInput = {
   deleteMany?: Prisma.PersonScalarWhereInput | Prisma.PersonScalarWhereInput[]
 }
 
-export type PersonCreateWithoutSpouseOfInput = {
-  id?: string
-  name: string
-  givenName?: string | null
-  surname?: string | null
-  gender?: $Enums.Gender | null
-  birthDate?: Date | string | null
-  birthPlace?: string | null
-  deathDate?: Date | string | null
-  deathPlace?: string | null
-  img?: string | null
-  spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
-  child?: Prisma.PersonCreateNestedOneWithoutParentInput
-  parent?: Prisma.PersonCreateNestedManyWithoutChildInput
-  tree: Prisma.TreeCreateNestedOneWithoutPersonsInput
-}
-
-export type PersonUncheckedCreateWithoutSpouseOfInput = {
-  id?: string
-  name: string
-  givenName?: string | null
-  surname?: string | null
-  gender?: $Enums.Gender | null
-  birthDate?: Date | string | null
-  birthPlace?: string | null
-  deathDate?: Date | string | null
-  deathPlace?: string | null
-  img?: string | null
-  spouseId?: string | null
-  childId?: string | null
-  treeId: string
-  parent?: Prisma.PersonUncheckedCreateNestedManyWithoutChildInput
-}
-
-export type PersonCreateOrConnectWithoutSpouseOfInput = {
-  where: Prisma.PersonWhereUniqueInput
-  create: Prisma.XOR<Prisma.PersonCreateWithoutSpouseOfInput, Prisma.PersonUncheckedCreateWithoutSpouseOfInput>
-}
-
-export type PersonCreateWithoutSpouseInput = {
-  id?: string
-  name: string
-  givenName?: string | null
-  surname?: string | null
-  gender?: $Enums.Gender | null
-  birthDate?: Date | string | null
-  birthPlace?: string | null
-  deathDate?: Date | string | null
-  deathPlace?: string | null
-  img?: string | null
-  spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
-  child?: Prisma.PersonCreateNestedOneWithoutParentInput
-  parent?: Prisma.PersonCreateNestedManyWithoutChildInput
-  tree: Prisma.TreeCreateNestedOneWithoutPersonsInput
-}
-
-export type PersonUncheckedCreateWithoutSpouseInput = {
-  id?: string
-  name: string
-  givenName?: string | null
-  surname?: string | null
-  gender?: $Enums.Gender | null
-  birthDate?: Date | string | null
-  birthPlace?: string | null
-  deathDate?: Date | string | null
-  deathPlace?: string | null
-  img?: string | null
-  childId?: string | null
-  treeId: string
-  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
-  parent?: Prisma.PersonUncheckedCreateNestedManyWithoutChildInput
-}
-
-export type PersonCreateOrConnectWithoutSpouseInput = {
-  where: Prisma.PersonWhereUniqueInput
-  create: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
-}
-
 export type PersonCreateWithoutParentInput = {
   id?: string
   name: string
@@ -765,12 +731,14 @@ export type PersonCreateWithoutParentInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
+  child?: Prisma.PersonCreateNestedOneWithoutParentInput
   spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
   spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
-  child?: Prisma.PersonCreateNestedOneWithoutParentInput
   tree: Prisma.TreeCreateNestedOneWithoutPersonsInput
 }
 
@@ -782,6 +750,8 @@ export type PersonUncheckedCreateWithoutParentInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
@@ -804,12 +774,14 @@ export type PersonCreateWithoutChildInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
+  parent?: Prisma.PersonCreateNestedManyWithoutChildInput
   spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
   spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
-  parent?: Prisma.PersonCreateNestedManyWithoutChildInput
   tree: Prisma.TreeCreateNestedOneWithoutPersonsInput
 }
 
@@ -821,13 +793,15 @@ export type PersonUncheckedCreateWithoutChildInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
   spouseId?: string | null
   treeId: string
-  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
   parent?: Prisma.PersonUncheckedCreateNestedManyWithoutChildInput
+  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
 }
 
 export type PersonCreateOrConnectWithoutChildInput = {
@@ -840,94 +814,90 @@ export type PersonCreateManyChildInputEnvelope = {
   skipDuplicates?: boolean
 }
 
-export type PersonUpsertWithoutSpouseOfInput = {
-  update: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseOfInput, Prisma.PersonUncheckedUpdateWithoutSpouseOfInput>
+export type PersonCreateWithoutSpouseOfInput = {
+  id?: string
+  name: string
+  givenName?: string | null
+  surname?: string | null
+  gender?: $Enums.Gender | null
+  birthDate?: Date | string | null
+  birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
+  deathDate?: Date | string | null
+  deathPlace?: string | null
+  img?: string | null
+  child?: Prisma.PersonCreateNestedOneWithoutParentInput
+  parent?: Prisma.PersonCreateNestedManyWithoutChildInput
+  spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
+  tree: Prisma.TreeCreateNestedOneWithoutPersonsInput
+}
+
+export type PersonUncheckedCreateWithoutSpouseOfInput = {
+  id?: string
+  name: string
+  givenName?: string | null
+  surname?: string | null
+  gender?: $Enums.Gender | null
+  birthDate?: Date | string | null
+  birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
+  deathDate?: Date | string | null
+  deathPlace?: string | null
+  img?: string | null
+  spouseId?: string | null
+  childId?: string | null
+  treeId: string
+  parent?: Prisma.PersonUncheckedCreateNestedManyWithoutChildInput
+}
+
+export type PersonCreateOrConnectWithoutSpouseOfInput = {
+  where: Prisma.PersonWhereUniqueInput
   create: Prisma.XOR<Prisma.PersonCreateWithoutSpouseOfInput, Prisma.PersonUncheckedCreateWithoutSpouseOfInput>
-  where?: Prisma.PersonWhereInput
 }
 
-export type PersonUpdateToOneWithWhereWithoutSpouseOfInput = {
-  where?: Prisma.PersonWhereInput
-  data: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseOfInput, Prisma.PersonUncheckedUpdateWithoutSpouseOfInput>
+export type PersonCreateWithoutSpouseInput = {
+  id?: string
+  name: string
+  givenName?: string | null
+  surname?: string | null
+  gender?: $Enums.Gender | null
+  birthDate?: Date | string | null
+  birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
+  deathDate?: Date | string | null
+  deathPlace?: string | null
+  img?: string | null
+  child?: Prisma.PersonCreateNestedOneWithoutParentInput
+  parent?: Prisma.PersonCreateNestedManyWithoutChildInput
+  spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
+  tree: Prisma.TreeCreateNestedOneWithoutPersonsInput
 }
 
-export type PersonUpdateWithoutSpouseOfInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
-  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
-  child?: Prisma.PersonUpdateOneWithoutParentNestedInput
-  parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
-  tree?: Prisma.TreeUpdateOneRequiredWithoutPersonsNestedInput
+export type PersonUncheckedCreateWithoutSpouseInput = {
+  id?: string
+  name: string
+  givenName?: string | null
+  surname?: string | null
+  gender?: $Enums.Gender | null
+  birthDate?: Date | string | null
+  birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
+  deathDate?: Date | string | null
+  deathPlace?: string | null
+  img?: string | null
+  childId?: string | null
+  treeId: string
+  parent?: Prisma.PersonUncheckedCreateNestedManyWithoutChildInput
+  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
 }
 
-export type PersonUncheckedUpdateWithoutSpouseOfInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
-  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spouseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  childId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  treeId?: Prisma.StringFieldUpdateOperationsInput | string
-  parent?: Prisma.PersonUncheckedUpdateManyWithoutChildNestedInput
-}
-
-export type PersonUpsertWithoutSpouseInput = {
-  update: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseInput, Prisma.PersonUncheckedUpdateWithoutSpouseInput>
+export type PersonCreateOrConnectWithoutSpouseInput = {
+  where: Prisma.PersonWhereUniqueInput
   create: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
-  where?: Prisma.PersonWhereInput
-}
-
-export type PersonUpdateToOneWithWhereWithoutSpouseInput = {
-  where?: Prisma.PersonWhereInput
-  data: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseInput, Prisma.PersonUncheckedUpdateWithoutSpouseInput>
-}
-
-export type PersonUpdateWithoutSpouseInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
-  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
-  child?: Prisma.PersonUpdateOneWithoutParentNestedInput
-  parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
-  tree?: Prisma.TreeUpdateOneRequiredWithoutPersonsNestedInput
-}
-
-export type PersonUncheckedUpdateWithoutSpouseInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
-  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  childId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  treeId?: Prisma.StringFieldUpdateOperationsInput | string
-  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
-  parent?: Prisma.PersonUncheckedUpdateManyWithoutChildNestedInput
 }
 
 export type PersonUpsertWithoutParentInput = {
@@ -949,12 +919,14 @@ export type PersonUpdateWithoutParentInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  child?: Prisma.PersonUpdateOneWithoutParentNestedInput
   spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
   spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
-  child?: Prisma.PersonUpdateOneWithoutParentNestedInput
   tree?: Prisma.TreeUpdateOneRequiredWithoutPersonsNestedInput
 }
 
@@ -966,6 +938,8 @@ export type PersonUncheckedUpdateWithoutParentInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1002,12 +976,112 @@ export type PersonScalarWhereInput = {
   gender?: Prisma.EnumGenderNullableFilter<"Person"> | $Enums.Gender | null
   birthDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
   birthPlace?: Prisma.StringNullableFilter<"Person"> | string | null
+  marriageDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
+  marriagePlace?: Prisma.StringNullableFilter<"Person"> | string | null
   deathDate?: Prisma.DateTimeNullableFilter<"Person"> | Date | string | null
   deathPlace?: Prisma.StringNullableFilter<"Person"> | string | null
   img?: Prisma.StringNullableFilter<"Person"> | string | null
   spouseId?: Prisma.StringNullableFilter<"Person"> | string | null
   childId?: Prisma.StringNullableFilter<"Person"> | string | null
   treeId?: Prisma.StringFilter<"Person"> | string
+}
+
+export type PersonUpsertWithoutSpouseOfInput = {
+  update: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseOfInput, Prisma.PersonUncheckedUpdateWithoutSpouseOfInput>
+  create: Prisma.XOR<Prisma.PersonCreateWithoutSpouseOfInput, Prisma.PersonUncheckedCreateWithoutSpouseOfInput>
+  where?: Prisma.PersonWhereInput
+}
+
+export type PersonUpdateToOneWithWhereWithoutSpouseOfInput = {
+  where?: Prisma.PersonWhereInput
+  data: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseOfInput, Prisma.PersonUncheckedUpdateWithoutSpouseOfInput>
+}
+
+export type PersonUpdateWithoutSpouseOfInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  child?: Prisma.PersonUpdateOneWithoutParentNestedInput
+  parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
+  spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
+  tree?: Prisma.TreeUpdateOneRequiredWithoutPersonsNestedInput
+}
+
+export type PersonUncheckedUpdateWithoutSpouseOfInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spouseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  childId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  treeId?: Prisma.StringFieldUpdateOperationsInput | string
+  parent?: Prisma.PersonUncheckedUpdateManyWithoutChildNestedInput
+}
+
+export type PersonUpsertWithoutSpouseInput = {
+  update: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseInput, Prisma.PersonUncheckedUpdateWithoutSpouseInput>
+  create: Prisma.XOR<Prisma.PersonCreateWithoutSpouseInput, Prisma.PersonUncheckedCreateWithoutSpouseInput>
+  where?: Prisma.PersonWhereInput
+}
+
+export type PersonUpdateToOneWithWhereWithoutSpouseInput = {
+  where?: Prisma.PersonWhereInput
+  data: Prisma.XOR<Prisma.PersonUpdateWithoutSpouseInput, Prisma.PersonUncheckedUpdateWithoutSpouseInput>
+}
+
+export type PersonUpdateWithoutSpouseInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  child?: Prisma.PersonUpdateOneWithoutParentNestedInput
+  parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
+  spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
+  tree?: Prisma.TreeUpdateOneRequiredWithoutPersonsNestedInput
+}
+
+export type PersonUncheckedUpdateWithoutSpouseInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  givenName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  surname?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
+  birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  childId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  treeId?: Prisma.StringFieldUpdateOperationsInput | string
+  parent?: Prisma.PersonUncheckedUpdateManyWithoutChildNestedInput
+  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
 }
 
 export type PersonCreateWithoutTreeInput = {
@@ -1018,13 +1092,15 @@ export type PersonCreateWithoutTreeInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
-  spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
-  spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
   child?: Prisma.PersonCreateNestedOneWithoutParentInput
   parent?: Prisma.PersonCreateNestedManyWithoutChildInput
+  spouse?: Prisma.PersonCreateNestedOneWithoutSpouseOfInput
+  spouseOf?: Prisma.PersonCreateNestedOneWithoutSpouseInput
 }
 
 export type PersonUncheckedCreateWithoutTreeInput = {
@@ -1035,13 +1111,15 @@ export type PersonUncheckedCreateWithoutTreeInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
   spouseId?: string | null
   childId?: string | null
-  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
   parent?: Prisma.PersonUncheckedCreateNestedManyWithoutChildInput
+  spouseOf?: Prisma.PersonUncheckedCreateNestedOneWithoutSpouseInput
 }
 
 export type PersonCreateOrConnectWithoutTreeInput = {
@@ -1078,6 +1156,8 @@ export type PersonCreateManyChildInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
@@ -1093,12 +1173,14 @@ export type PersonUpdateWithoutChildInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
   spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
   spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
-  parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
   tree?: Prisma.TreeUpdateOneRequiredWithoutPersonsNestedInput
 }
 
@@ -1110,13 +1192,15 @@ export type PersonUncheckedUpdateWithoutChildInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   spouseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   treeId?: Prisma.StringFieldUpdateOperationsInput | string
-  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
   parent?: Prisma.PersonUncheckedUpdateManyWithoutChildNestedInput
+  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
 }
 
 export type PersonUncheckedUpdateManyWithoutChildInput = {
@@ -1127,6 +1211,8 @@ export type PersonUncheckedUpdateManyWithoutChildInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1142,6 +1228,8 @@ export type PersonCreateManyTreeInput = {
   gender?: $Enums.Gender | null
   birthDate?: Date | string | null
   birthPlace?: string | null
+  marriageDate?: Date | string | null
+  marriagePlace?: string | null
   deathDate?: Date | string | null
   deathPlace?: string | null
   img?: string | null
@@ -1157,13 +1245,15 @@ export type PersonUpdateWithoutTreeInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
-  spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
   child?: Prisma.PersonUpdateOneWithoutParentNestedInput
   parent?: Prisma.PersonUpdateManyWithoutChildNestedInput
+  spouse?: Prisma.PersonUpdateOneWithoutSpouseOfNestedInput
+  spouseOf?: Prisma.PersonUpdateOneWithoutSpouseNestedInput
 }
 
 export type PersonUncheckedUpdateWithoutTreeInput = {
@@ -1174,13 +1264,15 @@ export type PersonUncheckedUpdateWithoutTreeInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   spouseId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   childId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
   parent?: Prisma.PersonUncheckedUpdateManyWithoutChildNestedInput
+  spouseOf?: Prisma.PersonUncheckedUpdateOneWithoutSpouseNestedInput
 }
 
 export type PersonUncheckedUpdateManyWithoutTreeInput = {
@@ -1191,6 +1283,8 @@ export type PersonUncheckedUpdateManyWithoutTreeInput = {
   gender?: Prisma.NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
   birthDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   birthPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  marriageDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  marriagePlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   deathDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   deathPlace?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   img?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1237,16 +1331,18 @@ export type PersonSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   gender?: boolean
   birthDate?: boolean
   birthPlace?: boolean
+  marriageDate?: boolean
+  marriagePlace?: boolean
   deathDate?: boolean
   deathPlace?: boolean
   img?: boolean
   spouseId?: boolean
   childId?: boolean
   treeId?: boolean
-  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
-  spouseOf?: boolean | Prisma.Person$spouseOfArgs<ExtArgs>
   child?: boolean | Prisma.Person$childArgs<ExtArgs>
   parent?: boolean | Prisma.Person$parentArgs<ExtArgs>
+  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
+  spouseOf?: boolean | Prisma.Person$spouseOfArgs<ExtArgs>
   tree?: boolean | Prisma.TreeDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PersonCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["person"]>
@@ -1259,14 +1355,16 @@ export type PersonSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   gender?: boolean
   birthDate?: boolean
   birthPlace?: boolean
+  marriageDate?: boolean
+  marriagePlace?: boolean
   deathDate?: boolean
   deathPlace?: boolean
   img?: boolean
   spouseId?: boolean
   childId?: boolean
   treeId?: boolean
-  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   child?: boolean | Prisma.Person$childArgs<ExtArgs>
+  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   tree?: boolean | Prisma.TreeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["person"]>
 
@@ -1278,14 +1376,16 @@ export type PersonSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   gender?: boolean
   birthDate?: boolean
   birthPlace?: boolean
+  marriageDate?: boolean
+  marriagePlace?: boolean
   deathDate?: boolean
   deathPlace?: boolean
   img?: boolean
   spouseId?: boolean
   childId?: boolean
   treeId?: boolean
-  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   child?: boolean | Prisma.Person$childArgs<ExtArgs>
+  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   tree?: boolean | Prisma.TreeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["person"]>
 
@@ -1297,6 +1397,8 @@ export type PersonSelectScalar = {
   gender?: boolean
   birthDate?: boolean
   birthPlace?: boolean
+  marriageDate?: boolean
+  marriagePlace?: boolean
   deathDate?: boolean
   deathPlace?: boolean
   img?: boolean
@@ -1305,33 +1407,33 @@ export type PersonSelectScalar = {
   treeId?: boolean
 }
 
-export type PersonOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "givenName" | "surname" | "gender" | "birthDate" | "birthPlace" | "deathDate" | "deathPlace" | "img" | "spouseId" | "childId" | "treeId", ExtArgs["result"]["person"]>
+export type PersonOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "givenName" | "surname" | "gender" | "birthDate" | "birthPlace" | "marriageDate" | "marriagePlace" | "deathDate" | "deathPlace" | "img" | "spouseId" | "childId" | "treeId", ExtArgs["result"]["person"]>
 export type PersonInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
-  spouseOf?: boolean | Prisma.Person$spouseOfArgs<ExtArgs>
   child?: boolean | Prisma.Person$childArgs<ExtArgs>
   parent?: boolean | Prisma.Person$parentArgs<ExtArgs>
+  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
+  spouseOf?: boolean | Prisma.Person$spouseOfArgs<ExtArgs>
   tree?: boolean | Prisma.TreeDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.PersonCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PersonIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   child?: boolean | Prisma.Person$childArgs<ExtArgs>
+  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   tree?: boolean | Prisma.TreeDefaultArgs<ExtArgs>
 }
 export type PersonIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   child?: boolean | Prisma.Person$childArgs<ExtArgs>
+  spouse?: boolean | Prisma.Person$spouseArgs<ExtArgs>
   tree?: boolean | Prisma.TreeDefaultArgs<ExtArgs>
 }
 
 export type $PersonPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Person"
   objects: {
-    spouse: Prisma.$PersonPayload<ExtArgs> | null
-    spouseOf: Prisma.$PersonPayload<ExtArgs> | null
     child: Prisma.$PersonPayload<ExtArgs> | null
     parent: Prisma.$PersonPayload<ExtArgs>[]
+    spouse: Prisma.$PersonPayload<ExtArgs> | null
+    spouseOf: Prisma.$PersonPayload<ExtArgs> | null
     tree: Prisma.$TreePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1342,6 +1444,8 @@ export type $PersonPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     gender: $Enums.Gender | null
     birthDate: Date | null
     birthPlace: string | null
+    marriageDate: Date | null
+    marriagePlace: string | null
     deathDate: Date | null
     deathPlace: string | null
     img: string | null
@@ -1742,10 +1846,10 @@ readonly fields: PersonFieldRefs;
  */
 export interface Prisma__PersonClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  spouse<T extends Prisma.Person$spouseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Person$spouseArgs<ExtArgs>>): Prisma.Prisma__PersonClient<runtime.Types.Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  spouseOf<T extends Prisma.Person$spouseOfArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Person$spouseOfArgs<ExtArgs>>): Prisma.Prisma__PersonClient<runtime.Types.Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   child<T extends Prisma.Person$childArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Person$childArgs<ExtArgs>>): Prisma.Prisma__PersonClient<runtime.Types.Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   parent<T extends Prisma.Person$parentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Person$parentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  spouse<T extends Prisma.Person$spouseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Person$spouseArgs<ExtArgs>>): Prisma.Prisma__PersonClient<runtime.Types.Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  spouseOf<T extends Prisma.Person$spouseOfArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Person$spouseOfArgs<ExtArgs>>): Prisma.Prisma__PersonClient<runtime.Types.Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   tree<T extends Prisma.TreeDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TreeDefaultArgs<ExtArgs>>): Prisma.Prisma__TreeClient<runtime.Types.Result.GetResult<Prisma.$TreePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1783,6 +1887,8 @@ export interface PersonFieldRefs {
   readonly gender: Prisma.FieldRef<"Person", 'Gender'>
   readonly birthDate: Prisma.FieldRef<"Person", 'DateTime'>
   readonly birthPlace: Prisma.FieldRef<"Person", 'String'>
+  readonly marriageDate: Prisma.FieldRef<"Person", 'DateTime'>
+  readonly marriagePlace: Prisma.FieldRef<"Person", 'String'>
   readonly deathDate: Prisma.FieldRef<"Person", 'DateTime'>
   readonly deathPlace: Prisma.FieldRef<"Person", 'String'>
   readonly img: Prisma.FieldRef<"Person", 'String'>
@@ -2185,44 +2291,6 @@ export type PersonDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 /**
- * Person.spouse
- */
-export type Person$spouseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Person
-   */
-  select?: Prisma.PersonSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Person
-   */
-  omit?: Prisma.PersonOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.PersonInclude<ExtArgs> | null
-  where?: Prisma.PersonWhereInput
-}
-
-/**
- * Person.spouseOf
- */
-export type Person$spouseOfArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Person
-   */
-  select?: Prisma.PersonSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Person
-   */
-  omit?: Prisma.PersonOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.PersonInclude<ExtArgs> | null
-  where?: Prisma.PersonWhereInput
-}
-
-/**
  * Person.child
  */
 export type Person$childArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2263,6 +2331,44 @@ export type Person$parentArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   distinct?: Prisma.PersonScalarFieldEnum | Prisma.PersonScalarFieldEnum[]
+}
+
+/**
+ * Person.spouse
+ */
+export type Person$spouseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Person
+   */
+  select?: Prisma.PersonSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Person
+   */
+  omit?: Prisma.PersonOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PersonInclude<ExtArgs> | null
+  where?: Prisma.PersonWhereInput
+}
+
+/**
+ * Person.spouseOf
+ */
+export type Person$spouseOfArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Person
+   */
+  select?: Prisma.PersonSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Person
+   */
+  omit?: Prisma.PersonOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PersonInclude<ExtArgs> | null
+  where?: Prisma.PersonWhereInput
 }
 
 /**

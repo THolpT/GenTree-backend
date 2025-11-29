@@ -6,11 +6,10 @@ import 'dotenv/config';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Включаем CORS для твоего фронтенда
   app.enableCors({
-    origin: 'http://localhost:5173', // фронтенд, которому разрешен доступ
+    origin: process.env.CORS_ORIGIN,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true, // если нужны куки
+    credentials: true,
   });
 
   const config = new DocumentBuilder()
@@ -22,6 +21,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
 }
 bootstrap();

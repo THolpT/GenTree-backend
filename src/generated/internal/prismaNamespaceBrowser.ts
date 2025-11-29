@@ -77,6 +77,8 @@ export const PersonScalarFieldEnum = {
   gender: 'gender',
   birthDate: 'birthDate',
   birthPlace: 'birthPlace',
+  marriageDate: 'marriageDate',
+  marriagePlace: 'marriagePlace',
   deathDate: 'deathDate',
   deathPlace: 'deathPlace',
   img: 'img',
@@ -90,9 +92,9 @@ export type PersonScalarFieldEnum = (typeof PersonScalarFieldEnum)[keyof typeof 
 
 export const UserScalarFieldEnum = {
   id: 'id',
-  email: 'email',
   login: 'login',
-  password: 'password'
+  password: 'password',
+  email: 'email'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -100,8 +102,8 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const TreeScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  authorId: 'authorId'
+  authorId: 'authorId',
+  name: 'name'
 } as const
 
 export type TreeScalarFieldEnum = (typeof TreeScalarFieldEnum)[keyof typeof TreeScalarFieldEnum]

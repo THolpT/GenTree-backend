@@ -27,6 +27,10 @@ export class PersonService {
   }
 
   async remove(id: string): Promise<Person> {
-    return this.prisma.person.delete({ where: { id } });
+    const children = await this.prisma.person.findMany({ where: { childId: id } });
+    for (const child of children) {
+      await this.remove(child.id);
+    }
+    return await this.prisma.person.delete({ where: { id } });
   }
 }
